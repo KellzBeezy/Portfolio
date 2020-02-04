@@ -1,2 +1,2 @@
-# stariting my portfolio
+# starting my portfolio
 Kelvin's Portfolio!
