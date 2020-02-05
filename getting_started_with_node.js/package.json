@@ -1,0 +1,21 @@
+{
+  "name": "nodetryout",
+  "version": "1.0.0",
+  "description": "a simple try out of Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Node",
+    "git",
+    "web"
+  ],
+  "author": "Kelvin Gwari",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
