@@ -1,0 +1,24 @@
+{
+  "name": "news-weather-app",
+  "version": "1.0.0",
+  "description": "\"An app that brings news, weather and entertainment to your finger tips.\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Kelvin Gwari",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
+  }
+}
