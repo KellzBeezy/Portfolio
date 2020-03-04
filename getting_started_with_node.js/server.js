@@ -22,8 +22,8 @@ exp.get('/', function(req, res){
     //res.sendFile(path.join(__dirname,'../public/about.html'));
 });
 exp.get('/contact', function(req, res){
-    //res.render('index');
-    res.sendFile(path.join(__dirname,'/public/error.html'));
+    res.render('contact');
+    //res.sendFile(path.join(__dirname,'/public/error.html'));
 });
 
 exp.listen('8000');

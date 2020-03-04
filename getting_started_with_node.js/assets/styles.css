@@ -6,11 +6,17 @@ h1{
     color: green;
     text-align: center;
     padding: 10px;
+    margin-bottom: 0px;
 }
 h4{
     color: white;
     text-align: center;
     padding: 10px;
+}
+h6{
+    color: red;
+    padding: 0;
+    margin-top: 2px;
 }
 header{
     list-style-type: none;
@@ -30,6 +36,9 @@ li a {
     text-align: center;
     padding: 16px;
     text-decoration: none;
+}
+.head{
+    list-style-type: none;
 }
 
 
