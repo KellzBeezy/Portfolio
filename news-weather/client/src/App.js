@@ -26,8 +26,8 @@ function App() {
         </div>
       </header>
       <h5 className='color-drive'><strong><em>Visit Drive And Brake (pvt) ltd. In just a single visit to Drive and Brake, your problems are over!!</em></strong></h5>
-      <div className='cont'>
-        <div >
+      <div className='container'>
+        <div className="overFlow">
           <div className='RIGHT'>
             <Temp/>
             <Getmovies/>

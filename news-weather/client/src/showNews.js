@@ -4,8 +4,8 @@ import React from 'react'
     
         return (
                 <div>
-                    <h2><a href={linkTonews}>{headline}</a></h2>
-                    <a href={linkTonews}><img src={linkToimage} alt='' width='49%' height='10%'/></a>
+                    <h3><a href={linkTonews}>{headline}</a></h3>
+                    <a href={linkTonews}><img  className = "RIGHT_image" src={linkToimage} alt=''/></a>
                     <h5>{Source}</h5>
                     <p>{content}
                     </p> 

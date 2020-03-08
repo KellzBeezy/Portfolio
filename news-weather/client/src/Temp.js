@@ -28,7 +28,7 @@ import axios from 'axios';
     render() {
         return (
     <div>
-        <h3 className='weather'>The weather Forecast!</h3>
+        <h3 >The weather Forecast!</h3>
         
             
                 <h4>The weather is brought to you by the open weather channel</h4>

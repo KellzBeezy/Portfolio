@@ -12,10 +12,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.cont{
-  height:50%;
+.overFlow{
+  overflow: hidden;
+  max-height: 425em;
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 30vh;
@@ -46,17 +46,24 @@
   float: left;
   background-color: white;
 }
-.image{
-  height: 100em;
+.RIGHT_image{
+ max-width: 15.51em;
 
 }
+.LEFT_image{
+  max-width: 11.85em;
+ 
+ }
+
 .RIGHT{
   margin: auto;
+  overflow: hidden;
   width: 30%;
-  height:50%;
+  /*height:50%;*/
   float: right;
   background-color: white;
-  margin-top: 1px;
+  margin-top: .2px;
+  overflow-y: scroll;
 }
 .all{
   width: fit-content;
