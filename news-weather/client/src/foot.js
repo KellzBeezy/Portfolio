@@ -10,7 +10,7 @@ export default class foot extends Component {
                         <div className="col col-lg-7 ">
                             <h6><u>Note</u></h6>
                             <p>
-                                We Have Done So Much With So Little That
+                                We Have Done So Much With So Little for so long That
                                 We Can Do Anything With Nothing!!! 
                             </p>
                         </div>

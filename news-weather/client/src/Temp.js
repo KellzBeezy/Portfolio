@@ -9,7 +9,8 @@ import axios from 'axios';
             low: 'No temperature',
             max: 'No temperature',
             feel: 'No temperature',
-            description: 'No temperature'
+            description: 'No temperature',
+            Load: true
         }
     }
     componentDidMount(){
@@ -19,7 +20,8 @@ import axios from 'axios';
                 low: res.data.low,
                 max: res.data.max,
                 feel: res.data.feel ,
-                description: res.data.description
+                description: res.data.description,
+                Load: false
             })
            
         });
@@ -33,13 +35,16 @@ import axios from 'axios';
             
                 <h4>The weather is brought to you by the open weather channel</h4>
                 <h5>The weather in Lefke Today</h5>
-                <p> 
-                    Temperature: {this.state.temp}<sup>o</sup>C<br/>
+                <div>
+                    {this.state.Load? < h6 className = "container">Loading...</h6>:
+                    <p> Temperature: {this.state.temp}<sup>o</sup>C<br/>
                     Feels like: {this.state.feel}<sup>o</sup>C<br/>
                     Max temperature: {this.state.max}<sup>o</sup>C<br/>
                     Min temperature: {this.state.low}<sup>o</sup>C
-                </p>
-                <h6>{this.state.description}</h6>
+                    <h6>{this.state.description}</h6>
+                    </p>
+                     }
+                </div>
     </div>
         )
     }
