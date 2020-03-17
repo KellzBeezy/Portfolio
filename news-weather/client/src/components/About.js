@@ -5,6 +5,10 @@ export default class About extends Component {
     return (
       <div>
         <h1>ABOUT PAGE</h1>
+        <p>
+          This Site was designed by Kelvin Gwari in an effert to bring news and
+          weather to one place.
+        </p>
       </div>
     );
   }

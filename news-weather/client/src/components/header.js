@@ -14,7 +14,7 @@ export default class header extends Component {
             </h4>
             <div className="head">
               <li className="is-active">
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/news">News</Link>
