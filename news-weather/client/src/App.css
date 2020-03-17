@@ -6,15 +6,21 @@
   height: 20vmin;
   pointer-events: none;
 }
+.icon{
+  min-width: 13.25em;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+  .loading{
+    animation: App-logo-spin infinite 2s linear;
+  }
 }
 .overFlow{
   overflow: hidden;
-  max-height: 425em;
+  max-height: 427em;
 }
 .App-header {
   background-color: #282c34;
@@ -47,11 +53,11 @@
   background-color: white;
 }
 .RIGHT_image{
- max-width: 15.51em;
+ max-width: 20.51em;
 
 }
 .LEFT_image{
-  max-width: 11.85em;
+  max-width: 12.85em;
  
  }
 
@@ -66,7 +72,9 @@
   overflow-y: scroll;
 }
 .all{
-  width: fit-content;
+  /*width: fit-content;*/
+  background-color: rgb(83, 77, 94);
+  color: gold;
 }
 a:link{
   text-decoration: none;
@@ -118,4 +126,18 @@ color: white;
 text-align: center;
 padding: 16px;
 text-decoration: none;
+}
+.loading{
+  align-content: center;
+  height: 20vmin;
+  pointer-events: none;
+  overflow: hidden;
+}
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }

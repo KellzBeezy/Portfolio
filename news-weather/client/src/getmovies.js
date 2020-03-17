@@ -22,7 +22,7 @@ const Getmovies = () =>{
         <center>
             <div className="movies">
                 <hr/>
-            <h2>Here are some of the latest movies</h2>
+            <h2>Here are Some of The Trending Movies</h2>
                 { 
                    movies.map(move=>(
                     < Movies
