@@ -28,7 +28,8 @@ app.get('/weather', (req, rest)=>{
 //GET THE NEWS
 app.get('/news', (req, rest)=>{
     request('https://newsapi.org/v2/top-headlines?country=za&category=sport&apiKey=65b096fc05f84b5bb7e6ae5e38b5d96c', 
-    function(err, res, body){   
+    function(err, res, body){ 
+          
      var news = [];
      
         for(let index = 0; index < 20 ; ++index){
@@ -70,9 +71,9 @@ app.get('/movies', (req, rest)=>{
     })
 
     app.get('/inde', (req,res)=>{
-        console.log('you did it');
-        res.render('!DOCTYPE html <html><head><title>TEST</title></head><body><h1>HEYY YOU</h1></body></html>');
-        //res.render('wow!!');
+        //console.log('you did it');
+        //res.render('!DOCTYPE html <html><head><title>TEST</title></head><body><h1>HEYY YOU</h1></body></html>');
+        res.send('wow!!');
         res.end();
     })
 });
