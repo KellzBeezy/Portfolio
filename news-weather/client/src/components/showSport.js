@@ -4,9 +4,11 @@ const ShowSport = ({ headline, content, linkToimage, Source, linkTonews }) => {
   return (
     <div>
       <h3>
-        <a href={linkTonews}>{headline}</a>
+        <a href={linkTonews} target="_blank">
+          {headline}
+        </a>
       </h3>
-      <a href={linkTonews}>
+      <a href={linkTonews} target="_blank">
         <img className="RIGHT_image" src={linkToimage} alt="" />
       </a>
       <h5>{Source}</h5>
