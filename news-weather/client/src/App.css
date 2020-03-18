@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  background-color:grey ;
+  background-color: grey;
 }
 .App-logo {
   height: 20vmin;
   pointer-events: none;
 }
-.icon{
+.icon {
   min-width: 13.25em;
 }
 
@@ -14,11 +14,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-  .loading{
+  .loading {
     animation: App-logo-spin infinite 2s linear;
   }
 }
-.overFlow{
+.overFlow {
   overflow: hidden;
   max-height: 427em;
 }
@@ -45,61 +45,64 @@
     transform: rotate(360deg);
   }
 }
-.LEFT{
+.LEFT {
   margin: auto;
   width: 70%;
   height: 50%;
   float: left;
   background-color: white;
+  overflow: hidden;
+  max-height: 427em;
+  overflow-y: scroll;
 }
-.RIGHT_image{
- max-width: 20.51em;
-
+.RIGHT_image {
+  max-width: 20.51em;
 }
-.LEFT_image{
+.LEFT_image {
   max-width: 12.85em;
- 
- }
+}
 
-.RIGHT{
+.RIGHT {
   margin: auto;
   overflow: hidden;
   width: 30%;
   /*height:50%;*/
   float: right;
   background-color: white;
-  margin-top: .2px;
+  margin-top: 0.2px;
+  overflow: hidden;
+  max-height: 427em;
   overflow-y: scroll;
 }
-.all{
+.all {
   /*width: fit-content;*/
   background-color: rgb(83, 77, 94);
   color: gold;
 }
-a:link{
+a:link {
   text-decoration: none;
   color: rgb(12, 5, 9);
 }
-a:visited{
+a:visited {
   text-decoration: none;
   color: rgb(90, 89, 109);
 }
-.color-drive{
+.color-drive {
   color: yellow;
 }
-a:hover{
+a:hover {
   text-decoration: none;
   color: rgb(6, 73, 15);
 }
-h5{
-    color: blue;
+h5 {
+  color: blue;
 }
-h6{
+h6 {
   color: red;
   padding: 0;
   margin-top: 2px;
 }
-h2{
+h2 {
   color: green;
   text-align: center;
   padding: 10px;
@@ -111,23 +114,23 @@ h2{
     padding: 10px;
     margin-bottom: 0px;
 }*/
-h3{
+h3 {
   color: rgb(110, 22, 168);
   text-align: center;
   padding: 10px;
 }
 
-li{
-list-style: none;
-float: left;
-text-align: center;
-display: block;
-color: white;
-text-align: center;
-padding: 16px;
-text-decoration: none;
+li {
+  list-style: none;
+  float: left;
+  text-align: center;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
 }
-.loading{
+.loading {
   align-content: center;
   height: 20vmin;
   pointer-events: none;
