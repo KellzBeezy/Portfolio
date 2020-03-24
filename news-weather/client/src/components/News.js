@@ -28,7 +28,6 @@ class News extends Component {
       <div>
         {this.state.Load ? (
           <h6 className="container">
-            <img src={logo} className="loading" alt=""></img>
             <br />
             <br />
             LOADING...

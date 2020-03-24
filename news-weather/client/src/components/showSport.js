@@ -2,7 +2,7 @@ import React from "react";
 
 const ShowSport = ({ headline, content, linkToimage, Source, linkTonews }) => {
   return (
-    <div>
+    <div className="mobile">
       <h3>
         <a href={linkTonews} target="_blank">
           {headline}

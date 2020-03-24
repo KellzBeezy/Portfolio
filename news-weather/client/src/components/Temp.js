@@ -28,12 +28,9 @@ class Temp extends Component {
 
   render() {
     return (
-      <div>
-        <h3>The weather Forecast!</h3>
-
+      <div className="mob-temp">
         <h4>The weather is brought to you by the open weather channel</h4>
 
-        <h5>The weather in Lefke Today</h5>
         <div>
           {this.state.Load ? (
             <h6 className="container">Loading...</h6>

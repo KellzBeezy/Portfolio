@@ -5,7 +5,7 @@ export default class foot extends Component {
   render() {
     return (
       <div>
-        <div className="container foot">
+        <div className="container">
           <footer className=" row ">
             <div className="col col-lg-7 ">
               <h6>
@@ -18,42 +18,67 @@ export default class foot extends Component {
             </div>
             <div className="col col-lg-5">
               <ul className="foot-list row">
-                <div className="col col-lg-2 foot-list">
+                <div className="col col-lg-2 ">
                   <li>
-                    <img
-                      className="fa fa-facebook"
-                      src="#"
-                      alt=""
-                      width="100%"
-                    />
+                    <a
+                      href="https://www.facebook.com/Kelvingwari"
+                      target="_Blank"
+                    >
+                      <img
+                        style={{ color: "blue" }}
+                        className="fa fa-facebook"
+                        src="#"
+                        alt=""
+                        width="100%"
+                      />
+                    </a>
                   </li>
                 </div>
 
                 <div className="col col-lg-2 foot-list">
                   <li>
-                    <img
-                      className="fa fa-twitter"
-                      src="#"
-                      alt=""
-                      width="100%"
-                    />
+                    <a href="https://twitter.com/Kelvin_beezy" target="_Blank">
+                      <img
+                        style={{ color: "powderblue" }}
+                        className="fa fa-twitter"
+                        src="#"
+                        alt=""
+                        width="100%"
+                      />
+                    </a>
                   </li>
                 </div>
 
                 <div className="col col-lg-2 foot-list">
                   <li>
-                    <img
-                      className="fa fa-linkedin"
-                      src="#"
-                      alt=""
-                      width="100%"
-                    />
+                    <a
+                      href="https://www.linkedin.com/in/kelvin-gwari-608b91123/"
+                      target="_Blank"
+                    >
+                      <img
+                        style={{ color: "whitesmoke" }}
+                        className="fa fa-linkedin"
+                        src="#"
+                        alt=""
+                        width="100%"
+                      />
+                    </a>
                   </li>
                 </div>
 
                 <div className="col col-lg-2 foot-list">
                   <li>
-                    <img className="fa fa-github" src="#" alt="" width="100%" />
+                    <a href="https://github.com/KellzBeezy" target="_Blank">
+                      <img
+                        style={{
+                          color: "black"
+                        }}
+                        className="fa fa-github"
+                        src="#"
+                        alt=""
+                        width="100%"
+                      />
+                    </a>
                   </li>
                 </div>
               </ul>
@@ -62,7 +87,7 @@ export default class foot extends Component {
               <h6 className="color">
                 <em>
                   {}
-                  developed by <img src={Banner} alt="" width="2%" />
+                  developed by <img src={Banner} alt="" />
                 </em>
               </h6>
             </div>

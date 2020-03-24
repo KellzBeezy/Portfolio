@@ -2,7 +2,7 @@ import React from "react";
 
 const ShowNews = ({ headline, content, linkToimage, Source, linkTonews }) => {
   return (
-    <div>
+    <div className="mobile">
       <h3>
         <a target="_blank" rel="noopener noreferer" href={linkTonews}>
           {headline}

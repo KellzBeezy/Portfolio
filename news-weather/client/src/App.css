@@ -14,27 +14,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-  .loading {
-    animation: App-logo-spin infinite 2s linear;
-  }
-}
-.overFlow {
-  overflow: hidden;
-  max-height: 427em;
-}
-.App-header {
-  background-color: #282c34;
-  min-height: 30vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -45,102 +24,219 @@
     transform: rotate(360deg);
   }
 }
-.LEFT {
-  margin: auto;
-  width: 70%;
-  height: 50%;
-  float: left;
-  background-color: white;
-  overflow: hidden;
-  max-height: 427em;
-  overflow-y: scroll;
-}
-.RIGHT_image {
-  max-width: 20.51em;
-}
-.LEFT_image {
-  max-width: 12.85em;
-}
+@media only screen and (min-width: 800px) {
+  @media (prefers-reduced-motion: no-preference) {
+    .loading {
+      animation: App-logo-spin infinite 2s linear;
+    }
+  }
+  .overFlow {
+    overflow: hidden;
+    max-height: 427em;
+  }
+  .App-header {
+    background-color: #282c34;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    /*position: fixed;
+    min-width: 100%;*/
+  }
 
-.RIGHT {
-  margin: auto;
-  overflow: hidden;
-  width: 30%;
-  /*height:50%;*/
-  float: right;
-  background-color: white;
-  margin-top: 0.2px;
-  overflow: hidden;
-  max-height: 427em;
-  overflow-y: scroll;
-}
-.all {
-  /*width: fit-content;*/
-  background-color: rgb(83, 77, 94);
-  color: gold;
-}
-a:link {
-  text-decoration: none;
-  color: rgb(12, 5, 9);
-}
-a:visited {
-  text-decoration: none;
-  color: rgb(90, 89, 109);
-}
-.color-drive {
-  color: yellow;
-}
-a:hover {
-  text-decoration: none;
-  color: rgb(6, 73, 15);
-}
-h5 {
-  color: blue;
-}
-h6 {
-  color: red;
-  padding: 0;
-  margin-top: 2px;
-}
-h2 {
-  color: green;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 0px;
-}
-/*h4{
+  .App-link {
+    color: #61dafb;
+  }
+  .LEFT {
+    margin: auto;
+    width: 70%;
+    height: 50%;
+    float: left;
+    background-color: white;
+    overflow: hidden;
+    max-height: 427em;
+    overflow-y: scroll;
+  }
+  .RIGHT_image {
+    max-width: 20.51em;
+  }
+  .LEFT_image {
+    max-width: 12.85em;
+  }
+
+  .RIGHT {
+    margin: auto;
+    overflow: hidden;
+    width: 30%;
+    /*height:50%;*/
+    float: right;
+    background-color: white;
+    margin-top: 0.2px;
+    overflow: hidden;
+    max-height: 427em;
+    overflow-y: scroll;
+  }
+  .all {
+    /*width: fit-content;*/
+    background-color: rgb(83, 77, 94);
+    color: gold;
+  }
+  a:link {
+    text-decoration: none;
+    color: rgb(12, 5, 9);
+  }
+  a:visited {
+    text-decoration: none;
+    color: rgb(90, 89, 109);
+  }
+  .color-drive {
+    color: yellow;
+  }
+  a:hover {
+    text-decoration: none;
+    color: rgb(6, 73, 15);
+  }
+  h5 {
+    color: blue;
+  }
+  h6 {
+    color: red;
+    padding: 0;
+    margin-top: 2px;
+  }
+  h2 {
+    color: green;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0px;
+  }
+  /*h4{
     color: rgb(17, 138, 146);
     text-align: center;
     padding: 10px;
     margin-bottom: 0px;
 }*/
-h3 {
-  color: rgb(110, 22, 168);
-  text-align: center;
-  padding: 10px;
+  h3 {
+    color: rgb(110, 22, 168);
+    text-align: center;
+    padding: 10px;
+  }
+
+  li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  .loading {
+    align-content: center;
+    height: 20vmin;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  @keyframes loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
 }
 
-li {
-  list-style: none;
-  float: left;
-  text-align: center;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-}
-.loading {
-  align-content: center;
-  height: 20vmin;
-  pointer-events: none;
-  overflow: hidden;
-}
-@keyframes loading-spin {
-  from {
-    transform: rotate(0deg);
+/*FOR MOBILE*/
+
+@media only screen and (max-width: 800px) {
+  .App-header {
+    background-color: #212122;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    /*position: fixed;
+    min-width: 100%;*/
   }
-  to {
-    transform: rotate(180deg);
+  .mobile {
+    margin-top: 10px;
+  }
+  .mobile h5 {
+    font: 0.7em serif;
+  }
+  .mobile p {
+    font-style: italic;
+    text-align: justify;
+  }
+  .mobile h3 {
+    font: 1.3em serif;
+  }
+  li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  a:link {
+    text-decoration: none;
+    color: rgb(12, 5, 9);
+  }
+  a:visited {
+    text-decoration: none;
+    color: rgb(90, 89, 109);
+  }
+  .color-drive {
+    color: orangered;
+  }
+  a:hover {
+    text-decoration: none;
+    color: rgb(6, 73, 15);
+  }
+  .mob-temp {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(151, 152, 155);
+    padding: 10px 5px 5px 5px;
+  }
+  .mob-temp h6 {
+    font: caption;
+    color: rgb(57, 17, 95);
+  }
+  .mob-temp h4 {
+    font: caption;
+    color: lawngreen;
+  }
+  .mob-temp h3 {
+    font: 1em sans-serif;
+  }
+  .RIGHT_image {
+    max-width: 18.51em;
+  }
+  .LEFT_image {
+    /*movies*/
+    max-width: 12.51em;
+  }
+  .all {
+    background-color: rgb(79, 109, 126);
+    color: rgb(46, 153, 32);
+  }
+  .all h6 {
+    color: rgb(231, 148, 148);
+  }
+  .pageHeight {
+    color: red;
+    max-height: 0em;
   }
 }

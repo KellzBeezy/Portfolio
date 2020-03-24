@@ -33,15 +33,18 @@ class App extends Component {
             </h5>
             <div>
               <div className="overFlow">
-                <div className="RIGHT container">
+                <div className="RIGHT container ">
                   <Temp />
-                  <Getmovies />
                 </div>
                 <div className="LEFT container">
                   <Route path="/sport" exact component={Sport} />
                   <Route path="/news" exact component={News} />
                   <Route path="/about" exact component={About} />
                   <Route path="/" exact component={Home} />
+                </div>
+                <div className="RIGHT container">
+                  {" "}
+                  <Getmovies />
                 </div>
               </div>
               <div className="all">
