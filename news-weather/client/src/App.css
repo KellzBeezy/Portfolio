@@ -71,12 +71,19 @@
     margin: auto;
     overflow: hidden;
     width: 30%;
-    /*height:50%;*/
     float: right;
     background-color: white;
     margin-top: 0.2px;
+    max-height: 20em;
+  }
+  .movie_right {
+    margin: auto;
     overflow: hidden;
-    max-height: 427em;
+    width: 30%;
+    float: right;
+    background-color: white;
+    margin-top: 0.2px;
+    max-height: 414.5em;
     overflow-y: scroll;
   }
   .all {

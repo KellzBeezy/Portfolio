@@ -33,7 +33,7 @@ class App extends Component {
             </h5>
             <div>
               <div className="overFlow">
-                <div className="RIGHT container ">
+                <div className="RIGHT container">
                   <Temp />
                 </div>
                 <div className="LEFT container">
@@ -42,8 +42,7 @@ class App extends Component {
                   <Route path="/about" exact component={About} />
                   <Route path="/" exact component={Home} />
                 </div>
-                <div className="RIGHT container">
-                  {" "}
+                <div className="movie_right container">
                   <Getmovies />
                 </div>
               </div>
