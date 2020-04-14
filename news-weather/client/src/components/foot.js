@@ -23,6 +23,8 @@ export default class foot extends Component {
                     <a
                       href="https://www.facebook.com/Kelvingwari"
                       target="_Blank"
+                      without
+                      rel="noopener noreferrer"
                     >
                       <img
                         style={{ color: "blue" }}
@@ -37,7 +39,12 @@ export default class foot extends Component {
 
                 <div className="col col-lg-2 foot-list">
                   <li>
-                    <a href="https://twitter.com/Kelvin_beezy" target="_Blank">
+                    <a
+                      href="https://twitter.com/Kelvin_beezy"
+                      target="_Blank"
+                      without
+                      rel="noopener noreferrer"
+                    >
                       <img
                         style={{ color: "powderblue" }}
                         className="fa fa-twitter"
@@ -54,6 +61,8 @@ export default class foot extends Component {
                     <a
                       href="https://www.linkedin.com/in/kelvin-gwari-608b91123/"
                       target="_Blank"
+                      without
+                      rel="noopener noreferrer"
                     >
                       <img
                         style={{ color: "whitesmoke" }}
@@ -68,7 +77,12 @@ export default class foot extends Component {
 
                 <div className="col col-lg-2 foot-list">
                   <li>
-                    <a href="https://github.com/KellzBeezy" target="_Blank">
+                    <a
+                      href="https://github.com/KellzBeezy"
+                      target="_Blank"
+                      without
+                      rel="noopener noreferrer"
+                    >
                       <img
                         style={{
                           color: "black"
@@ -85,11 +99,13 @@ export default class foot extends Component {
             </div>
             <div className="foot container">
               <h6 className="color">
-                <em>
-                  {}
-                  developed by <img src={Banner} alt="" />
-                </em>
+                <em>{}</em>
               </h6>
+              <p>
+                {" "}
+                <img src={Banner} alt="" width="25px" />
+                &copy;{new Date().getFullYear()}{" "}
+              </p>
             </div>
           </footer>
         </div>

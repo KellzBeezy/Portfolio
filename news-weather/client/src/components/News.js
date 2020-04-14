@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ShowNews from "./showNews.js";
 import axios from "axios";
-import logo from "./load.svg";
+//import logo from "./load.svg";
 import rea from "./rea.ico";
 
 class News extends Component {

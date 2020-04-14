@@ -4,11 +4,11 @@ const ShowNews = ({ headline, content, linkToimage, Source, linkTonews }) => {
   return (
     <div className="mobile">
       <h3>
-        <a target="_blank" rel="noopener noreferer" href={linkTonews}>
+        <a href={linkTonews} target="_blank" without rel="noopener noreferrer">
           {headline}
         </a>
       </h3>
-      <a target="_blank" rel=" noopener noreferer" href={linkTonews}>
+      <a href={linkTonews} target="_blank" without rel="noopener noreferrer">
         <img className="RIGHT_image" src={linkToimage} alt="" />
       </a>
       <h5>{Source}</h5>
