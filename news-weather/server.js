@@ -13,7 +13,7 @@ const port = 5000;
 //GET WEATHER
 app.get("/weather", (req, rest) => {
   request(
-    "http://api.openweathermap.org/data/2.5/weather?q=lefke&appid=fb49b23aa58d0ce50b11311d9d23ee0c",
+    "http://api.openweathermap.org/data/2.5/weather?q=lefke&appid=",
     function(err, res, body) {
       var temp = Math.ceil(JSON.parse(body)["main"].temp - 273);
       var feel = Math.ceil(JSON.parse(body)["main"].feels_like - 273);
@@ -30,7 +30,7 @@ app.get("/weather", (req, rest) => {
 //GET Sports NEWS
 app.get("/sport", (req, rest) => {
   request(
-    "https://newsapi.org/v2/top-headlines?country=za&category=sport&apiKey=65b096fc05f84b5bb7e6ae5e38b5d96c",
+    "https://newsapi.org/v2/top-headlines?country=za&category=sport&apiKey=",
     function(err, res, body) {
       var n_sports = [];
 
@@ -48,7 +48,7 @@ app.get("/sport", (req, rest) => {
           linkToimage,
           linkTonews,
           Source,
-          Id
+          Id,
         });
       }
 
@@ -63,7 +63,7 @@ app.get("/movies", (req, rest) => {
   var page = Math.ceil(Math.random() * 5);
   //console.log(page);
   request(
-    "https://api.themoviedb.org/3/discover/movie?api_key=bc96a52a6cb35498e2fe6f3e6dffeaec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" +
+    "https://api.themoviedb.org/3/discover/movie?api_key=&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" +
       page,
     function(err, res, body) {
       var movies = [];
@@ -85,26 +85,27 @@ app.get("/movies", (req, rest) => {
   //getnews
 
   app.get("/news", (req, rest) => {
-    request(
-      "https://newsapi.org/v2/top-headlines?country=za&apiKey=65b096fc05f84b5bb7e6ae5e38b5d96c",
-      function(err, res, body) {
-        var news = [];
+    request("https://newsapi.org/v2/top-headlines?country=za&apiKey=", function(
+      err,
+      res,
+      body
+    ) {
+      var news = [];
 
-        for (let index = 0; index < 20; ++index) {
-          var headline = JSON.parse(body)["articles"][index].title;
-          var content = JSON.parse(body)["articles"][index].description;
-          var linkTonews = JSON.parse(body)["articles"][index].url;
-          var linkToimage = JSON.parse(body)["articles"][index].urlToImage;
-          var Source = JSON.parse(body)["articles"][index]["source"].name;
-          var Id = JSON.parse(body)["articles"][index].title;
+      for (let index = 0; index < 20; ++index) {
+        var headline = JSON.parse(body)["articles"][index].title;
+        var content = JSON.parse(body)["articles"][index].description;
+        var linkTonews = JSON.parse(body)["articles"][index].url;
+        var linkToimage = JSON.parse(body)["articles"][index].urlToImage;
+        var Source = JSON.parse(body)["articles"][index]["source"].name;
+        var Id = JSON.parse(body)["articles"][index].title;
 
-          news.push({ headline, content, linkToimage, linkTonews, Source, Id });
-        }
-
-        rest.send(news);
-        rest.end();
+        news.push({ headline, content, linkToimage, linkTonews, Source, Id });
       }
-    );
+
+      rest.send(news);
+      rest.end();
+    });
   });
 
   app.get("/", (req, res) => {
