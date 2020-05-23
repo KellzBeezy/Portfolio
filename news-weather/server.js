@@ -13,7 +13,7 @@ const port = 5000;
 //GET WEATHER
 app.get("/weather", (req, rest) => {
   request(
-    "http://api.openweathermap.org/data/2.5/weather?q=lefke&appid=",
+    "http://api.openweathermap.org/data/2.5/weather?q=lefke&appid=fb49b23aa58d0ce50b11311d9d23ee0c",
     function(err, res, body) {
       var temp = Math.ceil(JSON.parse(body)["main"].temp - 273);
       var feel = Math.ceil(JSON.parse(body)["main"].feels_like - 273);
@@ -30,7 +30,7 @@ app.get("/weather", (req, rest) => {
 //GET Sports NEWS
 app.get("/sport", (req, rest) => {
   request(
-    "https://newsapi.org/v2/top-headlines?country=za&category=sport&apiKey=",
+    "https://newsapi.org/v2/top-headlines?country=za&category=sport&apiKey=65b096fc05f84b5bb7e6ae5e38b5d96c",
     function(err, res, body) {
       var n_sports = [];
 
@@ -63,7 +63,7 @@ app.get("/movies", (req, rest) => {
   var page = Math.ceil(Math.random() * 5);
   //console.log(page);
   request(
-    "https://api.themoviedb.org/3/discover/movie?api_key=&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" +
+    "https://api.themoviedb.org/3/discover/movie?api_key=bc96a52a6cb35498e2fe6f3e6dffeaec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" +
       page,
     function(err, res, body) {
       var movies = [];
