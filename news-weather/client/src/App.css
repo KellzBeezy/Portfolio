@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: grey;
+  background-color:white;
 }
 .App-logo {
   height: 20vmin;
@@ -9,6 +9,7 @@
 .icon {
   min-width: 13.25em;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -24,7 +25,7 @@
     transform: rotate(360deg);
   }
 }
-@media only screen and (min-width: 800px) {
+
   @media (prefers-reduced-motion: no-preference) {
     .loading {
       animation: App-logo-spin infinite 2s linear;
@@ -32,7 +33,7 @@
   }
   .overFlow {
     overflow: hidden;
-    max-height: 427em;
+    max-height: 400em;
   }
   .App-header {
     background-color: #282c34;
@@ -52,16 +53,13 @@
   }
   .LEFT {
     margin: auto;
-    width: 70%;
-    height: 50%;
-    float: left;
     background-color: white;
     overflow: hidden;
     max-height: 427em;
     overflow-y: scroll;
   }
   .RIGHT_image {
-    max-width: 20.51em;
+    max-width: 40em;
   }
   .LEFT_image {
     max-width: 12.85em;
@@ -70,17 +68,13 @@
   .RIGHT {
     margin: auto;
     overflow: hidden;
-    width: 30%;
-    float: right;
     background-color: white;
     margin-top: 0.2px;
-    max-height: 20em;
+    /*max-height: 20em;*/
   }
   .movie_right {
     margin: auto;
     overflow: hidden;
-    width: 30%;
-    float: right;
     background-color: white;
     margin-top: 0.2px;
     max-height: 414.4em;
@@ -101,6 +95,7 @@
   }
   .color-drive {
     color: yellow;
+    background-color: grey;
   }
   a:hover {
     text-decoration: none;
@@ -131,17 +126,6 @@
     text-align: center;
     padding: 10px;
   }
-
-  li {
-    list-style: none;
-    float: left;
-    text-align: center;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-  }
   .loading {
     align-content: center;
     height: 20vmin;
@@ -156,11 +140,38 @@
       transform: rotate(180deg);
     }
   }
-}
+  li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  .mobile {
+    margin-top: 10px;
+  }
+  .temps{
+    float:right;
+    margin-top: 40px;
+  }
+
 
 /*FOR MOBILE*/
 
 @media only screen and (max-width: 800px) {
+   .RIGHT_image {
+    max-width: 18.51em;
+  }
+  .LEFT_image {
+    /*movies*/
+    max-width: 12.51em;
+  }
+  
+ 
+}/*
   .App-header {
     background-color: #212122;
     min-height: 10vh;
@@ -171,7 +182,7 @@
     font-size: calc(10px + 2vmin);
     color: white;
     /*position: fixed;
-    min-width: 100%;*/
+    min-width: 100%;*//*
   }
   .mobile {
     margin-top: 10px;
@@ -228,13 +239,7 @@
   .mob-temp h3 {
     font: 1em sans-serif;
   }
-  .RIGHT_image {
-    max-width: 18.51em;
-  }
-  .LEFT_image {
-    /*movies*/
-    max-width: 12.51em;
-  }
+ 
   .all {
     background-color: rgb(79, 109, 126);
     color: rgb(46, 153, 32);
@@ -247,3 +252,4 @@
     max-height: 0em;
   }
 }
+*/
