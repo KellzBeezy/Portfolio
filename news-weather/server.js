@@ -20,8 +20,9 @@ app.get("/weather", (req, rest) => {
       var description = JSON.parse(body)["weather"][0].description;
       var max = Math.ceil(JSON.parse(body)["main"].temp_max - 273);
       var low = Math.ceil(JSON.parse(body)["main"].temp_min - 273);
+      var icon = JSON.parse(body)["weather"][0].icon;
 
-      rest.send({ feel, temp, max, low, description });
+      rest.send({ feel, temp, max, low, description,icon });
       rest.end();
     }
   );
@@ -85,7 +86,7 @@ app.get("/movies", (req, rest) => {
   //getnews
 
   app.get("/news", (req, rest) => {
-    request("https://newsapi.org/v2/top-headlines?country=za&apiKey=", function(
+    request("https://newsapi.org/v2/top-headlines?country=za&apiKey=65b096fc05f84b5bb7e6ae5e38b5d96c", function(
       err,
       res,
       body
