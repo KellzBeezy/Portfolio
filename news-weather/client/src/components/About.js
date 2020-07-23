@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-
-export default class About extends Component {
+//mounted : false
+ class About extends Component {
+   componentDidMount(){
+    
+   }
+  
   render() {
     const team = { minHeight: "15em" };
     return (
@@ -14,3 +18,4 @@ export default class About extends Component {
     );
   }
 }
+export default About;

@@ -9,7 +9,7 @@ export default class header extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h4 className="App-title">
-            Welcome To the Development Site Of the Coolest App In Town!!
+          <strong><em>BEEZYAPP!!</em></strong> 
           </h4>
           <div className="head">
             <li className="is-active">
@@ -31,6 +31,11 @@ export default class header extends Component {
               <Link to="/about" replace>
                 About
               </Link>
+            </li>
+            <li className="is-active">
+              <a href="https://beezychat.herokuapp.com">
+                BeezyChat
+              </a>
             </li>
           </div>
         </header>

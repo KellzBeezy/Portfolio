@@ -5,7 +5,7 @@ export default class foot extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="">
           <footer className=" row ">
             <div className="col col-lg-7 ">
               <h6>

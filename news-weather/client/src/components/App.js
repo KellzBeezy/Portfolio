@@ -10,19 +10,13 @@ import Home from "./Home.js";
 import About from "./About.js";
 import Header from "./header.js";
 
-/*
-    <div className='LEFT'>
-  *         <News/>
-  *  </div>
-  */
-
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <Header />
-          <div className="container">
+          <div className="">
             <h5 className="color-drive">
               <strong>
                 <em>
@@ -31,27 +25,31 @@ class App extends Component {
                 </em>
               </strong>
             </h5>
-            <div>
-              <div className="overFlow">
-                <div className="RIGHT container">
-                  <Temp />
-                </div>
-                <div className="LEFT container">
-                  <Route path="/sport" exact component={Sport} />
-                  <Route path="/news" exact component={News} />
-                  <Route path="/about" exact component={About} />
-                  <Route path="/" exact component={Home} />
-                </div>
-                <div className="movie_right container">
-                  <Getmovies />
-                </div>
-              </div>
-              <div className="all">
-                <Foot />
+            <div className="container mobile" >
+              <div className="  row">
+
+              <div className="col-md-4">
+                        <div className='RIGHT'> 
+                          <Temp />
+                        </div>
+                        <div className="movie_right">
+                          <Getmovies />
+                        </div>
+                      </div>
+
+                      <div className="col-md-8 LEFT">
+                        <Route path="/sport" exact component={Sport} />
+                        <Route path="/news" exact component={News} />
+                        <Route path="/about" exact component={About} />
+                        <Route path="/" exact component={Home} />
+                      </div>
+                  </div>
               </div>
             </div>
+            <div className="all">
+                    <Foot />
+                  </div>
           </div>
-        </div>
       </BrowserRouter>
     );
   }

@@ -21,30 +21,42 @@ class Temp extends Component {
         max: res.data.max,
         feel: res.data.feel,
         description: res.data.description,
-        Load: false
+        icon: res.data.icon,
+        Load: false,
+        
+
       });
     });
   }
+  componentWillUMount() {
 
+  }
+  
   render() {
+    const str = ` http://openweathermap.org/img/wn/${this.state.icon}.png`;
+    
+    const style = {marginTop : "10"};
     return (
-      <div className="mob-temp">
+      
+      <div>
         <h4>The weather is brought to you by the open weather channel</h4>
 
         <div>
-          {this.state.Load ? (
-            <h6 className="container">Loading...</h6>
-          ) : (
-            <p>
-              {" "}
-              Temperature: {this.state.temp}
-              <sup>o</sup>C<br />
-              Feels like: {this.state.feel}
-              <sup>o</sup>C<br />
-              {this.state.max}
-              <sup>o</sup>C /{this.state.low}
-              <sup>o</sup>C<h6>{this.state.description}</h6>
-            </p>
+          {this.state.Load ? ( <h6 className="">Loading...</h6> ) : 
+          (
+            <div className='row'>
+              <div > 
+                <img src={str} width='150px'/>
+               
+                <span className='temps'> 
+                  <h6>{this.state.feel}<sup>o</sup>C<br /></h6>
+                  
+                  {this.state.max}
+                  <sup>o</sup>C /{this.state.low}
+                  <sup>o</sup>C<h6>{this.state.description}</h6></span>
+             
+           </div>
+           </div>
           )}
         </div>
       </div>
