@@ -35,10 +35,10 @@ class Temp extends Component {
   render() {
     const str = ` http://openweathermap.org/img/wn/${this.state.icon}.png`;
     
-    const style = {marginTop : "10"};
+    const style = {marginTop : '30px', backgroundColor:"black"};
     return (
       
-      <div>
+      <div style={style}>
         <h4>The weather is brought to you by the open weather channel</h4>
 
         <div>
@@ -46,14 +46,15 @@ class Temp extends Component {
           (
             <div className='row'>
               <div > 
-                <img src={str} width='150px'/>
+                <img src={str} width='200px' alt=''/>
                
                 <span className='temps'> 
                   <h6>{this.state.feel}<sup>o</sup>C<br /></h6>
                   
-                  {this.state.max}
-                  <sup>o</sup>C /{this.state.low}
-                  <sup>o</sup>C<h6>{this.state.description}</h6></span>
+                  <h6 style={{color:"white"}}>{this.state.max}
+                  <sup>o</sup>C / {this.state.low}
+                  <sup>o</sup>C</h6>
+                  <h6>{this.state.description}</h6></span>
              
            </div>
            </div>
