@@ -46,6 +46,22 @@
 	/*position: fixed;
     min-width: 100%;*/
 }
+nav {
+	list-style: none;
+	min-height: 2vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(5px + 2vmin);
+	color: white;
+	/*position: fixed;
+    min-width: 100%;*/
+}
+
+.goDown {
+	margin-top: 50px;
+}
 
 .App-link {
 	color: #61dafb;
@@ -54,7 +70,7 @@
 	margin: auto;
 	background-color: white;
 	overflow: hidden;
-	max-height: 427em;
+	max-height: 441em;
 	overflow-y: scroll;
 }
 .RIGHT_image {
@@ -98,7 +114,7 @@ a:visited {
 }
 a:hover {
 	text-decoration: none;
-	color: rgb(6, 73, 15);
+	color: rgb(10, 145, 28);
 }
 h5 {
 	color: blue;

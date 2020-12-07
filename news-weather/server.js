@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 //GET WEATHER
 app.get("/weather", (req, rest) => {
 	request(
-		`http://api.openweathermap.org/data/2.5/weather?q=lefke&appid=${process.env.WEATHER_API}`,
+		`http://api.openweathermap.org/data/2.5/weather?q=pretoria&appid=${process.env.WEATHER_API}`,
 		function(err, res, body) {
 			var temp = Math.ceil(JSON.parse(body)["main"].temp - 273);
 			var feel = Math.ceil(JSON.parse(body)["main"].feels_like - 273);
