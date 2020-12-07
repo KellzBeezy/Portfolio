@@ -5,51 +5,53 @@ import axios from "axios";
 import rea from "./rea.ico";
 
 class News extends Component {
-  constructor() {
-    super();
-    this.state = {
-      arr: [],
-      Load: true
-    };
-  }
+	constructor() {
+		super();
+		this.state = {
+			arr: [],
+			Load: true,
+		};
+	}
 
-  componentDidMount() {
-    axios.get("/news").then(res => {
-      this.setState({
-        arr: res.data,
-        Load: false
-      });
-      //console.log(this.state.arr);
-    });
-  }
+	componentDidMount() {
+		axios.get("/news").then((res) => {
+			this.setState({
+				arr: res.data,
+				Load: false,
+			});
+			//console.log(this.state.arr);
+		});
+	}
 
-  render() {
-    return (
-      <div>
-        {this.state.Load ? (
-          <h6 className="container">
-            <br />
-            <br />
-            LOADING...
-            <br />
-            <br />
-            <img src={rea} className="icon" alt=""></img>
-          </h6>
-        ) : (
-          this.state.arr.map(news => (
-            //console.log(news.headline),
-            <ShowNews
-              key={news.Id}
-              headline={news.headline}
-              content={news.content}
-              linkToimage={news.linkToimage}
-              Source={news.Source}
-              linkTonews={news.linkTonews}
-            />
-          ))
-        )}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				{this.state.Load ? (
+					<center>
+						<h6 className="container">
+							<br />
+							<br />
+							LOADING...
+							<br />
+							<br />
+							<img src={rea} className="icon" alt=""></img>
+						</h6>
+					</center>
+				) : (
+					this.state.arr.map((news) => (
+						//console.log(news.headline),
+						<ShowNews
+							key={news.Id}
+							headline={news.headline}
+							content={news.content}
+							linkToimage={news.linkToimage}
+							Source={news.Source}
+							linkTonews={news.linkTonews}
+						/>
+					))
+				)}
+			</div>
+		);
+	}
 }
 export default News;

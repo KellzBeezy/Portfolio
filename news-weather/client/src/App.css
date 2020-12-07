@@ -141,6 +141,9 @@ h3 {
 	text-align: center;
 	padding: 10px;
 }
+footer {
+	bottom: 0;
+}
 .loading {
 	align-content: center;
 	height: 20vmin;

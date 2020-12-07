@@ -12,8 +12,11 @@ export default class foot extends Component {
 								<u>Note</u>
 							</h6>
 							<p>
-								We Have Done So Much With So Little for so long That We Can Do
-								Anything With Nothing!!!
+								<i>
+									{" "}
+									We Have Done So Much With So Little for so long That We Can Do
+									Anything With Nothing!!!
+								</i>
 							</p>
 						</div>
 						<div className="col col-lg-5">

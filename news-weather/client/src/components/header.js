@@ -4,7 +4,6 @@ import Banner from "./rea.ico";
 
 export default class header extends Component {
 	render() {
-		const style = { color: "gold" };
 		return (
 			<nav className="navbar navbar-default navbar-fixed-top">
 				<div className="container">
