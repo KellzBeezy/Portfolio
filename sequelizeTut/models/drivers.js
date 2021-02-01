@@ -9,6 +9,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Driver.hasOne(models.OnlineStatus, {
+        foreignKey: "driver_id",
+      });
+      Driver.hasOne(models.MachineOwner, {
+        foreignKey: "driver_id",
+      });
+      Driver.hasOne(models.Route, {
+        foreignKey: "driver_id",
+      });
+      Driver.belongsTo(models.User, {
+        foreignKey: "user_id",
+      });
+      Driver.belongsTo(models.Location, {
+        foreignKey: "location_id",
+      });
     }
     toJSON() {
       return { ...this.get(), id: undefined };
@@ -17,35 +32,8 @@ module.exports = (sequelize, DataTypes) => {
   Driver.init(
     //attributes
     {
-      first_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validation: {
-          len: [3, 15],
-        },
-      },
-      last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validation: {
-          len: [2, 15],
-        },
-      },
-      birth_date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-      },
-      phone: {
-        type: DataTypes.STRING(13),
-        allowNull: false,
-        unique: true,
-      },
-      email: {
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          isEmail: { message: "Must be a valid email address!" },
-        },
+      user_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       driver_licence_number: {
@@ -55,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       expiring_date: {
         type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
+      location_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       working: {

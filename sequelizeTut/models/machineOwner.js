@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      MachineOwner.belongsTo(models.Driver, {
+        foreignKey: "driver_id",
+      });
+      MachineOwner.belongsTo(models.Company, {
+        foreignKey: "company_id",
+      });
+      MachineOwner.belongsTo(models.Machine, {
+        foreignKey: "machine_id",
+      });
     }
     toJSON() {
       return { ...this.get(), id: undefined };

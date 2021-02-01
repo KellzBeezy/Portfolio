@@ -9,7 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //Location.BelongsTo(company);
+      Location.hasOne(models.Company, { foreignKey: "location_id" });
+      Location.hasOne(models.Driver, { foreignKey: "location_id" });
+      Location.hasOne(models.Client, { foreignKey: "location_id" });
+      Location.hasOne(models.Machine, { foreignKey: "location_id" });
+      Location.hasOne(models.OnlineStatus, { foreignKey: "location_id" });
+      Location.hasOne(models.Route, { foreignKey: "from_location_id" });
+      Location.hasOne(models.Route, { foreignKey: "to_location" });
     }
     toJSON() {
       return { ...this.get(), id: undefined };
@@ -27,13 +33,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       latitude: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: true,
         defaultValue: null,
         validate: { min: -90, max: 90 },
       },
       longitude: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: true,
         defaultValue: null,
         validate: { min: -180, max: 180 },

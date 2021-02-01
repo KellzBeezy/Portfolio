@@ -9,15 +9,38 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.Login, { foreignKey: "email" });
+      User.hasOne(models.Client, { foreignKey: "user_id" });
+      User.hasOne(models.Driver, { foreignKey: "user_id" });
+      User.hasOne(models.Admin, { foreignKey: "user_id" });
+      User.belongsTo(models.RoleTypes, { foreignKey: "role" });
     }
-    toJSON() {
+    /*toJSON() {
       return { ...this.get(), id: undefined };
-    }
+    }*/
   }
   User.init(
     {
-      name: {
+      first_name: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      gender: {
+        type: DataTypes.STRING(6),
+        allowNull: false,
+      },
+
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      birth_date: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
       email: {
@@ -25,11 +48,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
         validate: {
-          isEmail: { message: "Must be a valid email address!" },
+          isEmail: true,
         },
       },
       role: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },

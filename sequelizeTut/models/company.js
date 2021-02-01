@@ -9,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Company.belongsTo(models.Location, {
+        foreignKey: "location_id",
+      });
+      Company.hasOne(models.MachineOwner, {
+        foreignKey: "company_id",
+      });
     }
     toJSON() {
       return { ...this.get(), id: undefined };
@@ -23,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       location_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
       },
       phone: {
         type: DataTypes.STRING(13),
@@ -33,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         unique: true,
+        allowNull: false,
         validate: {
           isEmail: { message: "Must be a valid email address!" },
         },

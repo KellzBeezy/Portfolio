@@ -4,7 +4,7 @@ let router = express.Router();
 const {
   Driver,
   Company,
-  ClientLogin,
+  Login,
   CallCenterAgents,
   RouteStatus,
   Machine,
@@ -18,6 +18,7 @@ const {
   TruckTripStatus,
   Route,
   Payment,
+  RoleTypes,
 } = require("../../models");
 
 /**
@@ -26,6 +27,27 @@ const {
 
 router.route("/").get((req, res) => {
   res.send("Welcome to update");
+});
+
+router.route("/Admin/:id").put(async (req, res) => {
+  try {
+    const { user_id, company_id } = req.body;
+    const { id } = req.params;
+    const admin = await Admin.findOne({
+      where: { id },
+    });
+
+    admin.user_id = user_id;
+    admin.company_id = company_id;
+    await admin.save();
+
+    return res.status(200).json({
+      admin,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
 });
 
 router.route("/TruckTripStatus/:id").put(async (req, res) => {
@@ -39,7 +61,7 @@ router.route("/TruckTripStatus/:id").put(async (req, res) => {
     truckTripStatus.status_details = status_details;
     await truckTripStatus.save();
 
-    return res.json({
+    return res.status(200).json({
       truckTripStatus,
     });
   } catch (err) {
@@ -59,7 +81,7 @@ router.route("/CallCenterAgents/:id").put(async (req, res) => {
     callCenterAgents.last_name = last_name;
     await callCenterAgents.save();
 
-    return res.json({
+    return res.status(200).json({
       callCenterAgents,
     });
   } catch (err) {
@@ -67,20 +89,40 @@ router.route("/CallCenterAgents/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/ClientLogin/:id").put(async (req, res) => {
+router.route("/RoleTypes/:id").put(async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { type_name } = req.body;
     const { id } = req.params;
-    const clientLogin = await ClientLogin.findOne({
+    const roleTypes = await RoleTypes.findOne({
       where: { id },
     });
 
-    clientLogin.email = email;
-    clientLogin.password = password;
-    await clientLogin.save();
+    roleTypes.type_name = type_name;
 
-    return res.json({
-      clientLogin,
+    await roleTypes.save();
+
+    return res.status(200).json({
+      roleTypes,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+router.route("/Login/:id").put(async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const { id } = req.params;
+    const login = await Login.findOne({
+      where: { id },
+    });
+
+    login.email = email;
+    login.password = password;
+    await login.save();
+
+    return res.status(200).json({
+      login,
     });
   } catch (err) {
     console.log(err);
@@ -89,33 +131,19 @@ router.route("/ClientLogin/:id").put(async (req, res) => {
 });
 router.route("/Client/:id").put(async (req, res) => {
   try {
-    const {
-      email,
-      birth_date,
-      phone,
-      payment_account,
-      payment_type,
-      gender,
-      last_name,
-      first_name,
-    } = req.body;
+    const { payment_account, payment_type, location_id } = req.body;
     const { id } = req.params;
     const client = await Client.findOne({
       where: { id },
     });
 
-    client.first_name = first_name;
-    client.last_name = last_name;
-    client.email = email;
-    client.birth_date = birth_date;
-    client.phone = phone;
     client.payment_account = payment_account;
     client.payment_type = payment_type;
-    client.gender = gender;
+    client.location_id = location_id;
 
     await client.save();
 
-    return res.json({
+    return res.status(200).json({
       client,
     });
   } catch (err) {
@@ -139,7 +167,7 @@ router.route("/Company/:id").put(async (req, res) => {
 
     await company.save();
 
-    return res.json({
+    return res.status(200).json({
       company,
     });
   } catch (err) {
@@ -151,12 +179,8 @@ router.route("/Company/:id").put(async (req, res) => {
 router.route("/Drivers/:id").put(async (req, res) => {
   try {
     const {
-      email,
-      birth_date,
-      phone,
       working,
-      last_name,
-      first_name,
+      location_id,
       driver_licence_number,
       expiring_date,
     } = req.body;
@@ -165,18 +189,14 @@ router.route("/Drivers/:id").put(async (req, res) => {
       where: { id },
     });
 
-    driver.first_name = first_name;
-    driver.birth_date = birth_date;
-    driver.email = email;
-    driver.last_name = last_name;
-    driver.phone = phone;
     driver.working = working;
     driver.driver_licence_number = driver_licence_number;
     driver.expiring_date = expiring_date;
+    driver.location_id = location_id;
 
     await driver.save();
 
-    return res.json({
+    return res.status(200).json({
       driver,
     });
   } catch (err) {
@@ -199,7 +219,7 @@ router.route("/Location/:id").put(async (req, res) => {
 
     await location.save();
 
-    return res.json({
+    return res.status(200).json({
       location,
     });
   } catch (err) {
@@ -219,7 +239,7 @@ router.route("/MachineCondition/:id").put(async (req, res) => {
 
     await machineCondition.save();
 
-    return res.json({
+    return res.status(200).json({
       machineCondition,
     });
   } catch (err) {
@@ -241,7 +261,7 @@ router.route("/MachineOwner/:id").put(async (req, res) => {
 
     await machineOwner.save();
 
-    return res.json({
+    return res.status(200).json({
       machineOwner,
     });
   } catch (err) {
@@ -260,6 +280,7 @@ router.route("/Machine/:id").put(async (req, res) => {
       color,
       keywords,
       description,
+      location_id,
     } = req.body;
     const { id } = req.params;
     const machine = await Machine.findOne({
@@ -269,13 +290,14 @@ router.route("/Machine/:id").put(async (req, res) => {
     machine.license_plate = license_plate;
     machine.model = model;
     machine.year = year;
+    machine.location_id = location_id;
     machine.condition_id = condition_id;
     machine.color = color;
     machine.keywords = keywords;
     machine.description = description;
     await machine.save();
 
-    return res.json({
+    return res.status(200).json({
       machine,
     });
   } catch (err) {
@@ -295,7 +317,7 @@ router.route("/MachineTypes/:id").put(async (req, res) => {
 
     await machineTypes.save();
 
-    return res.json({
+    return res.status(200).json({
       machineTypes,
     });
   } catch (err) {
@@ -318,7 +340,7 @@ router.route("/OnlineStatus/:id").put(async (req, res) => {
 
     await onlineStatus.save();
 
-    return res.json({
+    return res.status(200).json({
       onlineStatus,
     });
   } catch (err) {
@@ -338,7 +360,7 @@ router.route("/Payment/:id").put(async (req, res) => {
 
     await payment.save();
 
-    return res.json({
+    return res.status(200).json({
       payment,
     });
   } catch (err) {
@@ -371,7 +393,7 @@ router.route("/Route/:id").put(async (req, res) => {
 
     await route.save();
 
-    return res.json({
+    return res.status(200).json({
       route,
     });
   } catch (err) {
@@ -394,7 +416,7 @@ router.route("/RouteStatus/:id").put(async (req, res) => {
 
     await routeStatus.save();
 
-    return res.json({
+    return res.status(200).json({
       routeStatus,
     });
   } catch (err) {
@@ -414,7 +436,7 @@ router.route("/Status/:id").put(async (req, res) => {
 
     await status.save();
 
-    return res.json({
+    return res.status(200).json({
       status,
     });
   } catch (err) {

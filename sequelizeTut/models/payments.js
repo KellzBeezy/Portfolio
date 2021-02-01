@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //Location.BelongsTo(company);
+      Payment.hasOne(models.Client, { foreignKey: "payment_type" });
     }
     toJSON() {
       return { ...this.get(), id: undefined };

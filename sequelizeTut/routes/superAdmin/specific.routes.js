@@ -4,7 +4,7 @@ let router = express.Router();
 const {
   Driver,
   Company,
-  ClientLogin,
+  Login,
   CallCenterAgents,
   RouteStatus,
   Machine,
@@ -18,10 +18,30 @@ const {
   TruckTripStatus,
   Route,
   Payment,
+  RoleTypes,
+  User,
 } = require("../../models");
 
 router.route("/").get((req, res) => {
   res.send("Welcome to specific");
+});
+
+router.route("/Admin/:id").delete(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const admin = await Admin.findOne({
+      where: { id },
+    });
+
+    await admin.destroy();
+
+    return res.status(200).json({
+      message: "Admin Record deleted",
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
 });
 
 router.route("/TruckTripStatus/:id").delete(async (req, res) => {
@@ -33,7 +53,7 @@ router.route("/TruckTripStatus/:id").delete(async (req, res) => {
 
     await truckTripStatus.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "TruckTripStatus Record deleted",
     });
   } catch (err) {
@@ -41,7 +61,7 @@ router.route("/TruckTripStatus/:id").delete(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/CallCenterAgents/:id").put(async (req, res) => {
+router.route("/CallCenterAgents/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const callCenterAgents = await CallCenterAgents.findOne({
@@ -50,7 +70,7 @@ router.route("/CallCenterAgents/:id").put(async (req, res) => {
 
     await callCenterAgents.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "callCenterAgents Record Deleted",
     });
   } catch (err) {
@@ -58,24 +78,41 @@ router.route("/CallCenterAgents/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/ClientLogin/:id").put(async (req, res) => {
+router.route("/RoleTypes/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
-    const clientLogin = await ClientLogin.findOne({
+    const roleTypes = await RoleTypes.findOne({
       where: { id },
     });
 
-    await clientLogin.destroy();
+    await roleTypes.destroy();
 
-    return res.json({
-      message: "clientLogin Record Deleted",
+    return res.status(200).json({
+      message: "callCenterAgents Record Deleted",
     });
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
-router.route("/Client/:id").put(async (req, res) => {
+router.route("/Login/:id").delete(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const login = await Login.findOne({
+      where: { id },
+    });
+
+    await login.destroy();
+
+    return res.status(200).json({
+      message: "Login Record Deleted",
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+router.route("/Client/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const client = await Client.findOne({
@@ -84,7 +121,7 @@ router.route("/Client/:id").put(async (req, res) => {
 
     await client.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Client Record Deleted",
     });
   } catch (err) {
@@ -92,7 +129,7 @@ router.route("/Client/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Company/:id").put(async (req, res) => {
+router.route("/Company/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const company = await Company.findOne({
@@ -101,7 +138,7 @@ router.route("/Company/:id").put(async (req, res) => {
 
     await company.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Company Record Deleted",
     });
   } catch (err) {
@@ -110,7 +147,7 @@ router.route("/Company/:id").put(async (req, res) => {
   }
 });
 
-router.route("/Drivers/:id").put(async (req, res) => {
+router.route("/Drivers/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const driver = await Driver.findOne({
@@ -119,7 +156,7 @@ router.route("/Drivers/:id").put(async (req, res) => {
 
     await driver.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Drivers Record Deleted",
     });
   } catch (err) {
@@ -127,7 +164,7 @@ router.route("/Drivers/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Location/:id").put(async (req, res) => {
+router.route("/Location/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const location = await Location.findOne({
@@ -136,7 +173,7 @@ router.route("/Location/:id").put(async (req, res) => {
 
     await location.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Location Record Deleted",
     });
   } catch (err) {
@@ -144,7 +181,7 @@ router.route("/Location/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineCondition/:id").put(async (req, res) => {
+router.route("/MachineCondition/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const machineCondition = await MachineCondition.findOne({
@@ -153,7 +190,7 @@ router.route("/MachineCondition/:id").put(async (req, res) => {
 
     await machineCondition.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "MachineCondition Record Deleted",
     });
   } catch (err) {
@@ -161,7 +198,7 @@ router.route("/MachineCondition/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineOwner/:id").put(async (req, res) => {
+router.route("/MachineOwner/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const machineOwner = await MachineOwner.findOne({
@@ -170,7 +207,7 @@ router.route("/MachineOwner/:id").put(async (req, res) => {
 
     await machineOwner.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "MachineOwner Record Deleted",
     });
   } catch (err) {
@@ -179,7 +216,7 @@ router.route("/MachineOwner/:id").put(async (req, res) => {
   }
 });
 
-router.route("/Machine/:id").put(async (req, res) => {
+router.route("/Machine/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const machine = await Machine.findOne({
@@ -188,7 +225,7 @@ router.route("/Machine/:id").put(async (req, res) => {
 
     await machine.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Machine Record Deleted",
     });
   } catch (err) {
@@ -196,7 +233,7 @@ router.route("/Machine/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineTypes/:id").put(async (req, res) => {
+router.route("/MachineTypes/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const machineTypes = await MachineTypes.findOne({
@@ -205,7 +242,7 @@ router.route("/MachineTypes/:id").put(async (req, res) => {
 
     await machineTypes.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "MachineTypes Record deleted",
     });
   } catch (err) {
@@ -214,7 +251,7 @@ router.route("/MachineTypes/:id").put(async (req, res) => {
   }
 });
 
-router.route("/OnlineStatus/:id").put(async (req, res) => {
+router.route("/OnlineStatus/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const onlineStatus = await OnlineStatus.findOne({
@@ -223,7 +260,7 @@ router.route("/OnlineStatus/:id").put(async (req, res) => {
 
     await onlineStatus.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "OnlineStatus Record deleted",
     });
   } catch (err) {
@@ -231,7 +268,7 @@ router.route("/OnlineStatus/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Payment/:id").put(async (req, res) => {
+router.route("/Payment/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const payment = await Payment.findOne({
@@ -240,7 +277,7 @@ router.route("/Payment/:id").put(async (req, res) => {
 
     await payment.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Payment Record Deleted",
     });
   } catch (err) {
@@ -249,7 +286,7 @@ router.route("/Payment/:id").put(async (req, res) => {
   }
 });
 
-router.route("/Route/:id").put(async (req, res) => {
+router.route("/Route/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const route = await Route.findOne({
@@ -258,7 +295,7 @@ router.route("/Route/:id").put(async (req, res) => {
 
     await route.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Route Record Deleted",
     });
   } catch (err) {
@@ -266,7 +303,7 @@ router.route("/Route/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/RouteStatus/:id").put(async (req, res) => {
+router.route("/RouteStatus/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const routeStatus = await RouteStatus.findOne({
@@ -275,7 +312,7 @@ router.route("/RouteStatus/:id").put(async (req, res) => {
 
     await routeStatus.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "RouteStatus Record Deleted",
     });
   } catch (err) {
@@ -283,7 +320,7 @@ router.route("/RouteStatus/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Status/:id").put(async (req, res) => {
+router.route("/Status/:id").delete(async (req, res) => {
   try {
     const { id } = req.params;
     const status = await Status.findOne({
@@ -292,7 +329,7 @@ router.route("/Status/:id").put(async (req, res) => {
 
     await status.destroy();
 
-    return res.json({
+    return res.status(200).json({
       message: "Status Record Deleted",
     });
   } catch (err) {
@@ -304,15 +341,31 @@ router.route("/Status/:id").put(async (req, res) => {
 /**
  * !GET ONE
  * */
+router.route("/Admin/:id").get(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const admin = await Admin.findOne({
+      where: { id },
+      include: [User],
+    });
 
-router.route("/TruckTripStatus/:id").put(async (req, res) => {
+    return res.status(200).json({
+      admin,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+
+router.route("/TruckTripStatus/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const truckTripStatus = await TruckTripStatus.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       truckTripStatus,
     });
   } catch (err) {
@@ -320,14 +373,14 @@ router.route("/TruckTripStatus/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/CallCenterAgents/:id").put(async (req, res) => {
+router.route("/CallCenterAgents/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const callCenterAgents = await CallCenterAgents.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       callCenterAgents,
     });
   } catch (err) {
@@ -335,29 +388,31 @@ router.route("/CallCenterAgents/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/ClientLogin/:id").put(async (req, res) => {
+router.route("/RoleTypes/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
-    const clientLogin = await ClientLogin.findOne({
+    const roleTypes = await RoleTypes.findOne({
       where: { id },
     });
 
-    return res.json({
-      clientLogin,
+    return res.status(200).json({
+      roleTypes,
     });
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
-router.route("/Client/:id").put(async (req, res) => {
+
+router.route("/Client/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const client = await Client.findOne({
       where: { id },
+      include: [User],
     });
 
-    return res.json({
+    return res.status(200).json({
       client,
     });
   } catch (err) {
@@ -365,14 +420,14 @@ router.route("/Client/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Company/:id").put(async (req, res) => {
+router.route("/Company/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const company = await Company.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       company,
     });
   } catch (err) {
@@ -381,14 +436,15 @@ router.route("/Company/:id").put(async (req, res) => {
   }
 });
 
-router.route("/Drivers/:id").put(async (req, res) => {
+router.route("/Drivers/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const driver = await Driver.findOne({
       where: { id },
+      include: [User],
     });
 
-    return res.json({
+    return res.status(200).json({
       driver,
     });
   } catch (err) {
@@ -396,14 +452,14 @@ router.route("/Drivers/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/Location/:id").put(async (req, res) => {
+router.route("/Location/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const location = await Location.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       location,
     });
   } catch (err) {
@@ -411,14 +467,14 @@ router.route("/Location/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineCondition/:id").put(async (req, res) => {
+router.route("/MachineCondition/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const machineCondition = await MachineCondition.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       machineCondition,
     });
   } catch (err) {
@@ -426,14 +482,14 @@ router.route("/MachineCondition/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineOwner/:id").put(async (req, res) => {
+router.route("/MachineOwner/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const machineOwner = await MachineOwner.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       machineOwner,
     });
   } catch (err) {
@@ -442,14 +498,14 @@ router.route("/MachineOwner/:id").put(async (req, res) => {
   }
 });
 
-router.route("/Machine/:id").put(async (req, res) => {
+router.route("/Machine/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const machine = await Machine.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       machine,
     });
   } catch (err) {
@@ -457,14 +513,14 @@ router.route("/Machine/:id").put(async (req, res) => {
     return res.status(500).json(err);
   }
 });
-router.route("/MachineTypes/:id").put(async (req, res) => {
+router.route("/MachineTypes/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const machineTypes = await MachineTypes.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       machineTypes,
     });
   } catch (err) {
@@ -473,14 +529,14 @@ router.route("/MachineTypes/:id").put(async (req, res) => {
   }
 });
 
-router.route("/OnlineStatus/:id").put(async (req, res) => {
+router.route("/OnlineStatus/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const onlineStatus = await OnlineStatus.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       onlineStatus,
     });
   } catch (err) {
@@ -495,7 +551,7 @@ router.route("/Payment/:id").get(async (req, res) => {
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       payment,
     });
   } catch (err) {
@@ -504,14 +560,14 @@ router.route("/Payment/:id").get(async (req, res) => {
   }
 });
 
-router.route("/Route/:id").put(async (req, res) => {
+router.route("/Route/:id").get(async (req, res) => {
   try {
     const { id } = req.params;
     const route = await Route.findOne({
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       route,
     });
   } catch (err) {
@@ -526,7 +582,7 @@ router.route("/RouteStatus/:id").get(async (req, res) => {
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       routeStatus,
     });
   } catch (err) {
@@ -541,7 +597,7 @@ router.route("/Status/:id").get(async (req, res) => {
       where: { id },
     });
 
-    return res.json({
+    return res.status(200).json({
       status,
     });
   } catch (err) {

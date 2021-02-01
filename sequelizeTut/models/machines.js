@@ -9,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Machine.hasOne(models.MachineOwner, {
+        foreignKey: "machine_id",
+      });
+      Machine.belongsTo(models.Location, {
+        foreignKey: "location_id",
+      });
     }
     toJSON() {
       return { ...this.get(), id: undefined };
@@ -45,6 +51,10 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.TEXT,
         allowNull: true,
+      },
+      location_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     //options

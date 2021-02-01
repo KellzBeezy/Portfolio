@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //Location.BelongsTo(company);
+      Status.hasOne(models.TruckTripStatus, { foreignKey: "status_id" });
+      Status.hasOne(models.RouteStatus, { foreignKey: "status_id" });
     }
     toJSON() {
       return { ...this.get(), id: undefined };

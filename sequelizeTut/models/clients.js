@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const clientLogin = require("./login");
 module.exports = (sequelize, DataTypes) => {
   class Client extends Model {
     /**
@@ -9,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Client.hasOne(models.Route, { foreignKey: "client_id" });
+      Client.belongsTo(models.User, { foreignKey: "user_id" });
+      Client.belongsTo(models.Payment, { foreignKey: "payment_type" });
+      Client.belongsTo(models.Location, { foreignKey: "location_id" });
     }
     toJSON() {
       return { ...this.get(), id: undefined };
@@ -17,16 +22,13 @@ module.exports = (sequelize, DataTypes) => {
   Client.init(
     //attributes
     {
-      first_name: {
-        type: DataTypes.STRING,
+      user_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        unique: true,
       },
-      last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      gender: {
-        type: DataTypes.STRING(6),
+      location_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       payment_type: {
@@ -38,23 +40,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         validate: {
           isCreditCard: true,
-        },
-      },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      birth_date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true,
         },
       },
     },
