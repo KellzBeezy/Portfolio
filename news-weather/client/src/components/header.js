@@ -9,6 +9,9 @@ export default class header extends Component {
 				<div className="container">
 					{/*<!-- Brand and toggle get grouped for better mobile display -->*/}
 					<div className="navbar-header page-scroll">
+						<a className="navbar-brand" href="#page-top">
+							<img src={Banner} width="35px" height="35px" alt="" />
+						</a>
 						<button
 							type="button"
 							className="navbar-toggle collapsed"
@@ -20,9 +23,6 @@ export default class header extends Component {
 							<span className="icon-bar"></span>
 							<span className="icon-bar"></span>
 						</button>{" "}
-						<a className="navbar-brand" href="#page-top">
-							<img src={Banner} width="35px" height="35px" alt="" />
-						</a>
 					</div>
 					{/*<!-- Collect the nav links, forms, and other content for toggling -->*/}
 

@@ -4,10 +4,10 @@ import Banner from "./rea.ico";
 export default class foot extends Component {
 	render() {
 		return (
-			<div>
-				<div className="">
-					<footer className=" row ">
-						<div className="col col-lg-7 ">
+			<div className="ftbottom">
+				<div>
+					<footer className=" row " style={style}>
+						<div className="col col-lg-7 " style={{ marginTop: "2.5em" }}>
 							<h6>
 								<u>Note</u>
 							</h6>
@@ -19,7 +19,7 @@ export default class foot extends Component {
 								</i>
 							</p>
 						</div>
-						<div className="col col-lg-5">
+						<div className="col col-lg-5" style={{ marginTop: "2.5em" }}>
 							<ul className="foot-list row">
 								<div className="col col-lg-2 ">
 									<li>
@@ -116,3 +116,6 @@ export default class foot extends Component {
 		);
 	}
 }
+const style = {
+	marginTop: "12em",
+};

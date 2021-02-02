@@ -27,16 +27,18 @@ class News extends Component {
 		return (
 			<div>
 				{this.state.Load ? (
-					<center>
-						<h6 className="container">
-							<br />
-							<br />
-							LOADING...
-							<br />
-							<br />
-							<img src={rea} className="icon" alt=""></img>
-						</h6>
-					</center>
+					<div style={{ marginTop: "5em" }}>
+						<center>
+							<h6 className="">
+								<br />
+								<br />
+								LOADING...
+								<br />
+								<br />
+								<img src={rea} className="icon" alt=""></img>
+							</h6>
+						</center>
+					</div>
 				) : (
 					this.state.arr.map((news) => (
 						//console.log(news.headline),

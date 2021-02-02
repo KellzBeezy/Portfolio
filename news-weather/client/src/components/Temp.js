@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import rea from "./rea.ico";
 
 class Temp extends Component {
 	constructor() {
@@ -34,13 +35,23 @@ class Temp extends Component {
 		const style = { marginTop: "30px", backgroundColor: "black" };
 		return (
 			<div style={style}>
-				<h4>The weather is brought to you by the open weather channel</h4>
-
 				<div>
 					{this.state.Load ? (
-						<h6 className="">Loading...</h6>
+						<div style={{ marginTop: "5em" }}>
+							<center>
+								<h6 className="">
+									<br />
+									<br />
+									LOADING...
+									<br />
+									<br />
+									<img src={rea} style={{ minWidth: "9em" }} alt=""></img>
+								</h6>
+							</center>
+						</div>
 					) : (
 						<div className="row">
+							<h4>The weather is brought to you by the open weather channel</h4>
 							<div>
 								<img src={str} width="200px" alt="" />
 
