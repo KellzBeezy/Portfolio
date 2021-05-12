@@ -17,7 +17,7 @@ const Getmovies = () => {
 	}, []);
 
 	return (
-		<div>
+		<div id="movies">
 			{load ? (
 				<div style={{ marginTop: "5em" }}>
 					<center>

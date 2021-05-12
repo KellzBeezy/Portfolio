@@ -1,6 +1,7 @@
 const express = require("express");
 var request = require("request");
 var fs = require("fs");
+
 //var dep =
 require("dotenv").config();
 
@@ -12,18 +13,35 @@ app.use("/assets", express.static("assets"));
 
 const port = process.env.PORT || 5000;
 
+//weekly forecast
+app.get("/forecast", (req, res) => {
+	try {
+		request(
+			`https://api.weatherbit.io/v2.0/forecast/daily?city=pretoria&country=za&days=7&key=${process.env.WEATHER_API_DAILY}`,
+			function(err, response, body) {
+				let data = JSON.parse(body)["data"];
+
+				res.send(data);
+				res.end();
+			}
+		);
+	} catch (error) {
+		console.error(error);
+	}
+});
+
 //GET WEATHER
 app.get("/weather", (req, rest) => {
 	try {
 		request(
 			`http://api.openweathermap.org/data/2.5/weather?q=pretoria&appid=${process.env.WEATHER_API}`,
 			function(err, res, body) {
-				var temp = Math.ceil(JSON.parse(body)["main"].temp - 273);
-				var feel = Math.ceil(JSON.parse(body)["main"].feels_like - 273);
-				var description = JSON.parse(body)["weather"][0].description;
-				var max = Math.ceil(JSON.parse(body)["main"].temp_max - 273);
-				var low = Math.ceil(JSON.parse(body)["main"].temp_min - 273);
-				var icon = JSON.parse(body)["weather"][0].icon;
+				let temp = Math.ceil(JSON.parse(body)["main"].temp - 273);
+				let feel = Math.ceil(JSON.parse(body)["main"].feels_like - 273);
+				let description = JSON.parse(body)["weather"][0].description;
+				let max = Math.ceil(JSON.parse(body)["main"].temp_max - 273);
+				let low = Math.ceil(JSON.parse(body)["main"].temp_min - 273);
+				let icon = JSON.parse(body)["weather"][0].icon;
 
 				rest.send({ feel, temp, max, low, description, icon });
 				rest.end();
@@ -38,7 +56,7 @@ app.get("/weather", (req, rest) => {
 app.get("/tech", (req, rest) => {
 	try {
 		request(
-			`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${process.env.NEWS_API}`,
+			`https://newsapi.org/v2/top-headlines?country=za&category=technology&apiKey=${process.env.NEWS_API}`,
 			function(err, res, body) {
 				var tech = [];
 

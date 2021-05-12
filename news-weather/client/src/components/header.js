@@ -9,9 +9,11 @@ export default class header extends Component {
 				<div className="container">
 					{/*<!-- Brand and toggle get grouped for better mobile display -->*/}
 					<div className="navbar-header page-scroll">
-						<a className="navbar-brand" href="#page-top">
-							<img src={Banner} width="35px" height="35px" alt="" />
-						</a>
+						<div>
+							<Link to="/" replace className="navbar-brand">
+								<img src={Banner} width="35px" height="35px" alt="" />
+							</Link>
+						</div>
 						<button
 							type="button"
 							className="navbar-toggle collapsed"
@@ -36,24 +38,54 @@ export default class header extends Component {
 								<a href="#page-top">m</a>
 							</li>
 							<li className="is-active">
-								<Link to="/" replace>
+								<Link
+									to="/"
+									replace
+									onClick={() => {
+										document.getElementById("temp").style.display = "block";
+										//document.getElementByTagName("div").removeClass("LEFT");
+									}}
+								>
 									News
 								</Link>
 							</li>
 							<li>
-								<Link to="/sport" replace>
+								<Link
+									to="/sport"
+									replaceonClick={() => {
+										document.getElementById("temp").style.display = "block";
+										//document.getElementByTagName("div").removeClass("LEFT");
+									}}
+								>
 									Sport
 								</Link>
 							</li>
 							<li>
-								<Link to="/tech" replace>
+								<Link
+									to="/tech"
+									replace
+									onClick={() => {
+										document.getElementById("temp").style.display = "block";
+										//document.getElementByTagName("div").removeClass("LEFT");
+									}}
+								>
 									Technology
 								</Link>
 							</li>
 							<li className="is-active">
-								<Link to="/About" replace>
+								<Link
+									to="/About"
+									replace
+									onClick={() => {
+										document.getElementById("temp").style.display = "block";
+										//document.getElementByTagName("div").removeClass("LEFT");
+									}}
+								>
 									About Us
 								</Link>
+							</li>
+							<li>
+								<i className="flag flag-united-states"></i>
 							</li>
 						</ul>
 					</div>

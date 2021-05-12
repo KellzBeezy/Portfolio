@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "../App.css";
 import Temp from "./Temp.js";
+import DailyTemp from "./forecast.js";
 import News from "./News.js";
 import Getmovies from "./getmovies";
 import Foot from "./foot.js";
@@ -27,7 +28,7 @@ class App extends Component {
 						</h5>
 						<div className="container mobile">
 							<div className="  row">
-								<div className="col-md-4">
+								<div id="sidey" className="col-md-4">
 									<div className="RIGHT">
 										<Temp />
 									</div>
@@ -36,7 +37,8 @@ class App extends Component {
 									</div>
 								</div>
 
-								<div className="col-md-8 LEFT">
+								<div id="dynamic" className="col-md-8 LEFT">
+									<Route path="/forecast" exact component={DailyTemp} />
 									<Route path="/sport" exact component={Sport} />
 									<Route path="/tech" exact component={Tech} />
 									<Route path="/about" exact component={About} />
@@ -46,6 +48,7 @@ class App extends Component {
 							</div>
 						</div>
 					</div>
+
 					<hr />
 					<div className="all">
 						<Foot />
