@@ -1,59 +1,52 @@
-import React, { Component } from "react";
+import React from "react";
 import ShowNews from "./showNews.js";
-import axios from "axios";
-//import logo from "./load.svg";
+import { useSelector } from "react-redux";
 import rea from "./rea.ico";
 
-class News extends Component {
-	constructor() {
-		super();
-		this.state = {
-			arr: [],
-			Load: true,
-		};
-	}
+const News = () => {
+	const res = useSelector((state) => state.news);
+	const [news, setNews] = React.useState([]);
+	const [load, setLoad] = React.useState(true);
 
-	componentDidMount() {
-		axios.get("/news").then((res) => {
-			this.setState({
-				arr: res.data,
-				Load: false,
-			});
-			//console.log(this.state.arr);
-		});
-	}
+	React.useEffect(() => {
+		if (res) {
+			setNews(res);
+			setLoad(false);
+		}
 
-	render() {
-		return (
-			<div>
-				{this.state.Load ? (
-					<div style={{ marginTop: "5em" }}>
-						<center>
-							<h6 className="">
-								<br />
-								<br />
-								LOADING...
-								<br />
-								<br />
-								<img src={rea} className="icon" alt=""></img>
-							</h6>
-						</center>
-					</div>
-				) : (
-					this.state.arr.map((news) => (
-						//console.log(news.headline),
-						<ShowNews
-							key={news.Id}
-							headline={news.headline}
-							content={news.content}
-							linkToimage={news.linkToimage}
-							Source={news.Source}
-							linkTonews={news.linkTonews}
-						/>
-					))
-				)}
-			</div>
-		);
-	}
-}
+		//console.log(this.state.arr);
+	}, [res]);
+	console.log("news", news);
+	return (
+		<div>
+			{load ? (
+				<div style={{ marginTop: "5em" }}>
+					<center>
+						<h6 className="">
+							<br />
+							<br />
+							LOADING...
+							<br />
+							<br />
+							<img src={rea} className="icon" alt=""></img>
+						</h6>
+					</center>
+				</div>
+			) : (
+				news?.map((eachNews) => (
+					//console.log(news.headline),
+					<ShowNews
+						key={eachNews.Id}
+						headline={eachNews.headline}
+						content={eachNews.content}
+						linkToimage={eachNews.linkToimage}
+						Source={eachNews.Source}
+						linkTonews={eachNews.linkTonews}
+					/>
+				))
+			)}
+		</div>
+	);
+};
+
 export default News;

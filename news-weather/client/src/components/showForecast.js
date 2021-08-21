@@ -1,16 +1,7 @@
 import React from "react";
 import { WiBarometer, WiHumidity, WiCelsius } from "react-icons/wi";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
-
-const days = [
-	"Sunday",
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday",
-];
+import { days } from "../constants";
 
 const showForecast = ({
 	pressure,
@@ -22,16 +13,16 @@ const showForecast = ({
 	icon,
 	description,
 }) => {
-	const birthday = new Date(date);
-	const day = birthday.getDay();
+	const foreCastDay = new Date(date);
+	const day = foreCastDay.getDay();
 	const dayOfWeek = days[day];
 
 	const url = `https://www.weatherbit.io/static/img/icons/${icon}.png`;
 	return (
-		<div className=" col-md-6" style={{ marginTop: "10em", border: "5" }}>
+		<div className=" col-md-6" style={{ marginTop: "2em", border: "5" }}>
 			<div className="card">
 				<h5 className="card-title">{dayOfWeek}</h5>
-				<img src={url} class="card-img-top" alt="..." />
+				<img src={url} className="card-img-top" alt="..." />
 
 				<div className="row">
 					<div className="col-md-6">

@@ -60,7 +60,7 @@ nav {
 }
 
 .goDown {
-	margin-top: 50px;
+	margin-top: 5em;
 }
 
 .App-link {
@@ -176,6 +176,12 @@ li {
 	margin-right: 400px;
 	margin-top: 0px;
 }
+.sticky {
+	position: fixed;
+
+	width: 100%;
+	z-index: 1;
+}
 
 /*FOR MOBILE*/
 
@@ -190,7 +196,12 @@ li {
 	.movie_right {
 		display: none;
 	}
-} /*
+	.goDown {
+		margin-top: 6.5em;
+	}
+}
+
+/*
   .App-header {
     background-color: #212122;
     min-height: 10vh;

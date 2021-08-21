@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Movies from "./showMovies.js";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import rea from "./rea.ico";
 
-const Getmovies = () => {
+const GetMovies = () => {
+	const res = useSelector((state) => state.movies);
 	const [movies, setMovies] = useState([]);
-	const [load, setloading] = useState([true]);
+	const [load, setLoading] = useState([true]);
 
 	useEffect(() => {
-		axios.get("/movies").then((res) => {
-			setMovies(res.data);
-			setloading(false);
-			console.log(res.data);
-		});
-		console.log("Im the motherfucken app");
-	}, []);
+		if (res) {
+			setMovies(res);
+			setLoading(false);
+		}
+	}, [res]);
 
 	return (
 		<div id="movies">
@@ -52,4 +51,4 @@ const Getmovies = () => {
 		</div>
 	);
 };
-export default Getmovies;
+export default GetMovies;
